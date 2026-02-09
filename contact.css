@@ -1,88 +1,111 @@
-/* General Setup matching About page */
+/* General Setup */
 body {
     margin: 0;
     font-family: "Alice", serif;
     background: #efeded;
     color: #333;
+    overflow-x: hidden;
 }
 
 h1, h2, h3 { text-align: center; color: #000; }
-p { font-family: 'Inter', sans-serif; line-height: 1.6; text-align: center; }
+p { font-family: 'Inter', sans-serif; line-height: 1.8; color: #444; }
 
 .hr {
     border: none;
-    height: 4px;
+    height: 1px;
     background: #d0d0dd;
     margin: 60px auto;
-    width: 80%;
-    border-radius: 10px;
+    width: 70%;
 }
 
-/* Hero Style */
+/* Hero Section - Matching the About Page Effects */
 .hero {
     text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("contact-bg.jpg") no-repeat center center;
+    padding: 120px 20px;
+    /* Gradient overlay + Image */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("contactus.jpg") no-repeat center center;
     background-size: cover;
-    height: 40vh;
+    background-attachment: fixed; /* Parallax effect */
+    height: 45vh;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
 }
 
-.hero-text h1 { font-size: 3.5rem; color: white; margin: 0; animation: bounceUp 1s ease-out; }
+.hero-text h1 { 
+    font-size: clamp(2.5rem, 6vw, 4rem); 
+    color: white; 
+    margin: 0; 
+    animation: bounceUp 1.2s ease-out; 
+}
 
-/* Contact Container */
+.hero-text p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-top: 10px;
+    color: white;
+}
+
+@keyframes bounceUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Main Contact Layout */
 .about-container {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 50px;
+    gap: 60px;
     max-width: 1100px;
-    margin: 60px auto;
+    margin: 80px auto;
     padding: 0 20px;
 }
 
-.about-text { flex: 2; text-align: left; }
-.about-text h1 { text-align: left; font-size: 2.5rem; }
+.about-text { flex: 1.5; text-align: left; }
+.about-text h1 { text-align: left; font-size: 2.8rem; margin-bottom: 20px; }
 .about-text p { text-align: left; }
 
 /* Contact Card specifics */
 .contact-card-main {
     background: white;
-    padding: 30px;
-    border-radius: 20px;
+    padding: 40px;
+    border-radius: 25px;
     margin-top: 30px;
-    border: 2px solid #cae1ff;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #cae1ff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-.mini { font-size: 0.9rem; opacity: 0.7; }
+.contact-card-main h3 { text-align: left; margin-top: 0; color: #0047ab; }
+.mini { font-size: 0.9rem; opacity: 0.7; margin-top: 10px; }
 
-/* Reuse Points/Cards */
+/* Ways to Engage - Grid */
 .mission-points {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 30px;
     flex-wrap: wrap;
-    max-width: 1100px;
-    margin: 40px auto;
-    padding-bottom: 60px;
+    max-width: 1200px;
+    margin: 40px auto 80px;
+    padding: 0 20px;
 }
 
 .point {
-    background: #cae1ff;
-    padding: 30px;
-    border-radius: 15px;
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
     flex: 1;
-    min-width: 280px;
-    border: 2px solid white;
-    transition: 0.3s;
+    min-width: 300px;
+    border: 1px solid #cae1ff;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
 }
 
-.point h3 { margin-top: 0; }
-.point:hover { transform: translateY(-10px); }
+.point h3 { margin-top: 0; font-size: 1.5rem; }
+.point p { text-align: center; font-size: 0.95rem; }
+.point:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
 
 /* Buttons */
 .about-btn {
@@ -93,27 +116,39 @@ p { font-family: 'Inter', sans-serif; line-height: 1.6; text-align: center; }
     text-decoration: none;
     border-radius: 30px;
     font-family: 'Inter', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     border: 2px solid white;
     transition: 0.3s;
     text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
+.about-btn:hover { background: #97b1d3; transform: scale(1.05); }
+
 .directory-btn {
-    padding: 15px 40px;
-    background: #cae1ff;
-    color: black;
+    display: inline-block;
+    padding: 15px 35px;
+    background: #000;
+    color: white;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    border: 2px solid white;
     border-radius: 50px;
+    transition: 0.3s;
 }
+
+.directory-btn:hover { background: #333; }
 
 /* Footer */
 .footer {
     background: #cae1ff;
-    padding: 30px;
+    padding: 40px 20px;
     text-align: center;
-    font-family: 'Inter', sans-serif;
+}
+
+/* Mobile Responsive */
+@media (max-width: 850px) {
+    .about-container { flex-direction: column; text-align: center; }
+    .about-text, .about-text h1, .about-text p { text-align: center; }
+    .about-button { width: 100%; }
 }

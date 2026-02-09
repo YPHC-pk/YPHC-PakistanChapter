@@ -4,6 +4,7 @@ body {
     font-family: "Alice", serif;
     background: #efeded;
     color: #333;
+    overflow-x: hidden;
 }
 
 h1, h2, h3 {
@@ -13,24 +14,26 @@ h1, h2, h3 {
 
 p {
     font-family: 'Inter', sans-serif;
-    line-height: 1.6;
+    line-height: 1.8;
+    color: #444;
 }
 
 .hr {
     border: none;
-    height: 4px;
+    height: 1px; /* Thinner line looks more elegant */
     background: #d0d0dd;
     margin: 60px auto;
-    width: 80%;
-    border-radius: 10px;
+    width: 70%;
 }
 
 /* Hero Section */
 .hero {
     text-align: center;
     padding: 120px 20px;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("community-picture.jpg") no-repeat center center;
+    /* Using your combined gradient + image logic */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("about.jpg") no-repeat center center;
     background-size: cover;
+    background-attachment: fixed; /* Parallax effect */
     height: 50vh;
     display: flex;
     justify-content: center;
@@ -39,19 +42,22 @@ p {
 }
 
 .hero-text h1 {
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
     color: white;
     margin: 0;
     animation: bounceUp 1.2s ease-out;
 }
 
 .hero-text p {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    font-family: 'Inter', sans-serif;
     font-weight: 300;
+    margin-top: 10px;
+    color: white;
 }
 
 @keyframes bounceUp {
-    0% { opacity: 0; transform: translateY(50px); }
+    0% { opacity: 0; transform: translateY(40px); }
     100% { opacity: 1; transform: translateY(0); }
 }
 
@@ -60,19 +66,20 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 50px;
+    gap: 60px;
     max-width: 1100px;
-    margin: 80px auto;
+    margin: 100px auto;
     padding: 0 20px;
 }
 
 .about-text {
-    flex: 2;
+    flex: 1.5;
 }
 
 .about-text h1 {
     text-align: left;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
 }
 
 .about-button {
@@ -82,75 +89,89 @@ p {
 
 .about-btn {
     display: inline-block;
-    padding: 40px 30px;
+    padding: 50px 40px;
     background: #cae1ff;
     color: #000;
     text-decoration: none;
-    border-radius: 25px;
+    border-radius: 30px;
     font-family: 'Inter', sans-serif;
     font-weight: 700;
+    font-size: 1.1rem;
     border: 2px solid white;
-    transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 .about-btn:hover {
     background: #97b1d3;
-    transform: scale(1.05);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
-/* Points & Values */
+/* Mission & Values Grid */
 .mission-points {
     display: flex;
     justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
-    max-width: 1100px;
-    margin: 40px auto;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
 }
 
 .point {
-    background: #cae1ff;
-    padding: 30px;
-    border-radius: 15px;
+    background: #fff; /* White background makes them pop against #efeded */
+    padding: 40px 30px;
+    border-radius: 20px;
     flex: 1;
-    min-width: 250px;
+    min-width: 300px;
     text-align: center;
-    border: 2px solid white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    transition: 0.3s;
+    border: 1px solid #cae1ff;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .point:hover {
     transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
 }
 
-/* Directory Button for Bottom */
+.point h3 { margin-bottom: 15px; font-size: 1.6rem; }
+
+/* Call to Action Button */
 .directory-btn {
-    padding: 20px 60px;
-    background: #cae1ff;
-    color: black;
+    display: inline-block;
+    padding: 20px 50px;
+    background: #000; /* Black button for contrast at the bottom */
+    color: #fff;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    border: 2px solid white;
     border-radius: 50px;
     transition: 0.3s;
 }
 
 .directory-btn:hover {
-    background: #97b1d3;
+    background: #333;
+    transform: scale(1.05);
 }
 
-/* Footer Section */
-footer {
-    background: #cae1ff;
-    padding: 40px 20px;
-    margin-top: 50px;
-}
-
-.footer-content {
-    max-width: 1100px;
-    margin: auto;
-    text-align: center;
+/* --- Responsive Mobile Fixes --- */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        margin: 60px auto;
+    }
+    .about-text h1 {
+        text-align: center;
+    }
+    .about-btn {
+        padding: 30px 40px;
+    }
+    .hero {
+        height: 40vh;
+    }
 }

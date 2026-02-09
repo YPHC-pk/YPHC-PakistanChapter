@@ -4,120 +4,153 @@ body {
     font-family: "Alice", serif;
     background: #efeded;
     color: #333;
+    overflow-x: hidden;
 }
 
 h1, h2, h3 { text-align: center; color: #000; }
-p { font-family: 'Inter', sans-serif; line-height: 1.6; text-align: center; }
+p { font-family: 'Inter', sans-serif; line-height: 1.8; color: #444; }
 
 .hr {
     border: none;
-    height: 4px;
+    height: 1px;
     background: #d0d0dd;
     margin: 60px auto;
-    width: 80%;
-    border-radius: 10px;
+    width: 70%;
 }
 
-/* Hero Section */
+/* Hero Section - Updated for .webp and Parallax */
 .hero {
     text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("programs-bg.jpg") no-repeat center center;
+    padding: 120px 20px;
+    /* Overlay + WebP Image */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("programs.webp") no-repeat center center;
     background-size: cover;
-    height: 40vh;
+    background-attachment: fixed; /* Parallax effect */
+    height: 45vh;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
 }
 
-.hero-text h1 { font-size: 3.5rem; color: white; margin: 0; animation: bounceUp 1.2s ease-out; }
+.hero-text h1 { 
+    font-size: clamp(2.5rem, 6vw, 4rem); 
+    color: white; 
+    margin: 0; 
+    animation: bounceUp 1.2s ease-out; 
+}
+
+.hero-text p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    opacity: 0.95;
+    margin-top: 10px;
+    color: white;
+}
 
 /* Grid Styling */
 .container-text {
     max-width: 800px;
-    margin: 60px auto 20px auto;
+    margin: 80px auto 20px auto;
     padding: 0 20px;
 }
 
 .mission-points {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 30px;
     flex-wrap: wrap;
-    max-width: 1100px;
-    margin: 40px auto;
+    max-width: 1200px;
+    margin: 40px auto 80px;
     padding: 0 20px;
 }
 
 .point {
-    background: #cae1ff;
-    padding: 35px;
+    background: white; /* White cards for modern look */
+    padding: 40px 30px;
     border-radius: 20px;
     flex: 1;
-    min-width: 280px;
-    border: 2px solid white;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    min-width: 300px;
+    border: 1px solid #cae1ff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     transition: 0.3s ease;
+    text-align: center;
 }
 
-.point:hover { transform: translateY(-10px); }
+.point:hover { 
+    transform: translateY(-10px); 
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1); 
+}
+
+.point h3 { color: #0047ab; margin-top: 0; }
 
 /* Deliverables Section */
 .about-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 50px;
-    max-width: 1000px;
-    margin: 60px auto;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 80px auto;
     padding: 0 20px;
 }
 
 .about-text { flex: 2; text-align: left; }
-.about-text h1 { text-align: left; }
+.about-text h1 { text-align: left; font-size: 2.5rem; margin-bottom: 20px; }
 
 .contact-card-main {
     background: white;
-    padding: 30px;
+    padding: 35px;
     border-radius: 20px;
-    margin-top: 20px;
-    border-left: 5px solid #cae1ff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    margin-top: 25px;
+    border-left: 8px solid #cae1ff; /* Accent border */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
 
-.contact-card-main p { text-align: left; }
+.contact-card-main p { text-align: left; margin: 0; }
 
 /* Buttons & Footer */
 .about-btn {
     display: inline-block;
-    padding: 40px 30px;
+    padding: 45px 35px;
     background: #cae1ff;
     color: #000;
     text-decoration: none;
-    border-radius: 25px;
+    border-radius: 30px;
     font-family: 'Inter', sans-serif;
     font-weight: 700;
     border: 2px solid white;
     transition: 0.3s;
+    text-align: center;
 }
 
+.about-btn:hover { background: #97b1d3; transform: scale(1.05); }
+
 .directory-btn {
-    padding: 15px 40px;
-    background: #cae1ff;
-    color: black;
+    padding: 18px 45px;
+    background: #000;
+    color: white;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    border: 2px solid white;
     border-radius: 50px;
+    transition: 0.3s;
 }
 
-.btn-row-bottom { text-align: center; margin-bottom: 80px; }
+.directory-btn:hover { background: #333; }
+
+.btn-row-bottom { text-align: center; margin: 80px 0 120px; }
 
 .footer { background: #cae1ff; padding: 40px; text-align: center; }
 
 @keyframes bounceUp {
     0% { opacity: 0; transform: translateY(50px); }
     100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 850px) {
+    .about-container { flex-direction: column; text-align: center; }
+    .about-text h1 { text-align: center; }
+    .contact-card-main { border-left: none; border-top: 8px solid #cae1ff; }
 }

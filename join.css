@@ -1,106 +1,147 @@
+/* General Setup */
 body {
     margin: 0;
     font-family: "Alice", serif;
     background: #efeded;
     color: #333;
+    overflow-x: hidden;
 }
 
 h1, h2, h3 { text-align: center; color: #000; }
-p { font-family: 'Inter', sans-serif; line-height: 1.6; text-align: center; }
+p { font-family: 'Inter', sans-serif; line-height: 1.8; color: #444; }
 
 .hr {
     border: none;
-    height: 4px;
+    height: 1px;
     background: #d0d0dd;
     margin: 60px auto;
-    width: 80%;
-    border-radius: 10px;
+    width: 70%;
 }
 
-/* Hero Section */
+/* Hero Section - Matching the Parallax & Overlay Style */
 .hero {
     text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("join-bg.jpg") no-repeat center center;
+    padding: 120px 20px;
+    /* Gradient overlay + Image */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("joinus.jpg") no-repeat center center;
     background-size: cover;
-    height: 40vh;
+    background-attachment: fixed; /* Parallax effect */
+    height: 45vh;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
 }
 
-.hero-text h1 { font-size: 3.5rem; color: white; margin: 0; animation: bounceUp 1s ease-out; }
+.hero-text h1 { 
+    font-size: clamp(2.5rem, 6vw, 4rem); 
+    color: white; 
+    margin: 0; 
+    animation: bounceUp 1.2s ease-out; 
+}
 
-/* Flex Containers */
+.hero-text p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    opacity: 0.95;
+    margin-top: 10px;
+    color: white;
+}
+
+/* Benefit Cards */
 .about-container {
     max-width: 1000px;
-    margin: 60px auto;
+    margin: 80px auto 40px;
     padding: 0 20px;
 }
 
 .mission-points {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 30px;
     flex-wrap: wrap;
-    max-width: 1100px;
-    margin: 40px auto;
+    max-width: 1200px;
+    margin: 40px auto 80px;
+    padding: 0 20px;
 }
 
 .point {
-    background: #cae1ff;
-    padding: 30px;
-    border-radius: 15px;
+    background: white; /* White background for contrast */
+    padding: 40px 30px;
+    border-radius: 20px;
     flex: 1;
     min-width: 280px;
-    border: 2px solid white;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #cae1ff;
+    transition: 0.3s ease;
+    text-align: center;
 }
 
-/* Cards & Buttons */
+.point:hover { 
+    transform: translateY(-10px); 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05); 
+}
+
+.point h3 { margin-top: 0; color: #0047ab; }
+
+/* The Application Card */
 .contact-card-main {
     background: white;
-    padding: 40px;
-    border-radius: 20px;
+    padding: 50px 40px;
+    border-radius: 25px;
     max-width: 800px;
-    margin: 0 auto 60px auto;
-    border: 2px solid #cae1ff;
+    margin: 0 auto 100px auto;
+    border: 1px solid #cae1ff;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    text-align: center;
 }
 
+.contact-card-main h1 { font-size: 2.5rem; margin-bottom: 20px; }
+
+/* Buttons */
 .directory-btn {
-    padding: 15px 40px;
-    background: #cae1ff;
-    color: black;
+    display: inline-block;
+    padding: 18px 45px;
+    background: #000; /* Primary action is black for high contrast */
+    color: white;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    border: 2px solid white;
     border-radius: 50px;
     transition: 0.3s;
 }
 
+.directory-btn:hover { background: #333; transform: scale(1.05); }
+
 .about-btn {
     display: inline-block;
-    background: #efeded;
+    padding: 18px 30px;
+    background: #cae1ff;
     color: #000;
     text-decoration: none;
     border-radius: 50px;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    border: 2px solid #cae1ff;
+    border: 2px solid white;
     transition: 0.3s;
 }
 
-.mini { font-size: 0.9rem; opacity: 0.7; }
+.about-btn:hover { background: #97b1d3; }
+
+.mini { font-size: 0.9rem; opacity: 0.6; font-style: italic; }
 
 .footer {
     background: #cae1ff;
-    padding: 30px;
+    padding: 40px 20px;
     text-align: center;
 }
 
 @keyframes bounceUp {
     0% { opacity: 0; transform: translateY(50px); }
     100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .contact-card-main { padding: 30px 20px; margin: 0 15px 80px; }
+    .contact-card-main div { flex-direction: column; gap: 15px !important; }
 }
