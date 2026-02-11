@@ -140,8 +140,36 @@ p { font-family: 'Inter', sans-serif; line-height: 1.8; color: #444; }
     100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
-    .contact-card-main { padding: 30px 20px; margin: 0 15px 80px; }
-    .contact-card-main div { flex-direction: column; gap: 15px !important; }
+    .hero {
+        /* 1. Reduce the height so the image doesn't have to stretch so far */
+        height: 35vh; 
+        padding: 60px 20px;
+        
+        /* 2. Lock the image to the center so the important parts stay visible */
+        background-position: center center;
+        
+        /* 3. Turn off fixed attachment for mobile */
+        /* Parallax (fixed) often causes "super zoom" bugs on iPhones/Androids */
+        background-attachment: scroll; 
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem; /* Shrink text so it doesn't wrap weirdly */
+    }
+}
+
+.chapter-section {
+    padding-bottom: 80px;
+}
+
+/* Fix for mobile: Ensures the "What's Included" box looks good next to text */
+@media (max-width: 850px) {
+    .chapter-section .about-container {
+        flex-direction: column-reverse; /* Puts the info box below the text on phones */
+    }
+    
+    .chapter-section .about-text {
+        text-align: center;
+    }
 }

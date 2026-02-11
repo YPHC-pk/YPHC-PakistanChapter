@@ -141,3 +141,22 @@ ul li a:hover {
     /* Ensure content stays at the top/center, not at the very bottom */
     justify-content: flex-start; 
 }
+
+@media (max-width: 768px) {
+    .hero {
+        /* 1. Reduce the height so the image doesn't have to stretch so far */
+        height: 35vh; 
+        padding: 60px 20px;
+        
+        /* 2. Lock the image to the center so the important parts stay visible */
+        background-position: center center;
+        
+        /* 3. Turn off fixed attachment for mobile */
+        /* Parallax (fixed) often causes "super zoom" bugs on iPhones/Androids */
+        background-attachment: scroll; 
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem; /* Shrink text so it doesn't wrap weirdly */
+    }
+}

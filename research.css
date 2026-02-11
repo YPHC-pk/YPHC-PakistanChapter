@@ -33,23 +33,6 @@ p, span, a, div { font-family: 'Inter', sans-serif; }
     margin-bottom: 10px;
 }
 
-.upload-btn {
-    display: inline-block;
-    margin-top: 25px;
-    background: #000;
-    padding: 12px 25px;
-    text-decoration: none;
-    color: white;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: 0.3s ease;
-}
-
-.upload-btn:hover {
-    background: #0047ab;
-    transform: translateY(-2px);
-}
-
 /* --- Research Grid --- */
 .research-container {
     padding: 60px 20px;
@@ -191,9 +174,21 @@ p, span, a, div { font-family: 'Inter', sans-serif; }
 
 .view-paper-btn:hover { background: #0047ab; }
 
-/* Responsive Mobile Fixes */
 @media (max-width: 768px) {
-    .modal-flyer { min-height: 300px; }
-    .modal-text { padding: 30px; }
-    .modal-content { margin: 10% auto; }
+    .hero {
+        /* 1. Reduce the height so the image doesn't have to stretch so far */
+        height: 35vh; 
+        padding: 60px 20px;
+        
+        /* 2. Lock the image to the center so the important parts stay visible */
+        background-position: center center;
+        
+        /* 3. Turn off fixed attachment for mobile */
+        /* Parallax (fixed) often causes "super zoom" bugs on iPhones/Androids */
+        background-attachment: scroll; 
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem; /* Shrink text so it doesn't wrap weirdly */
+    }
 }

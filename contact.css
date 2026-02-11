@@ -146,9 +146,23 @@ p { font-family: 'Inter', sans-serif; line-height: 1.8; color: #444; }
     text-align: center;
 }
 
-/* Mobile Responsive */
-@media (max-width: 850px) {
-    .about-container { flex-direction: column; text-align: center; }
-    .about-text, .about-text h1, .about-text p { text-align: center; }
-    .about-button { width: 100%; }
+
+
+@media (max-width: 768px) {
+    .hero {
+        /* 1. Reduce the height so the image doesn't have to stretch so far */
+        height: 35vh; 
+        padding: 60px 20px;
+        
+        /* 2. Lock the image to the center so the important parts stay visible */
+        background-position: center center;
+        
+        /* 3. Turn off fixed attachment for mobile */
+        /* Parallax (fixed) often causes "super zoom" bugs on iPhones/Androids */
+        background-attachment: scroll; 
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem; /* Shrink text so it doesn't wrap weirdly */
+    }
 }
