@@ -85,7 +85,7 @@ path {
 }
 
 /* HIGHLIGHTED COUNTRIES */
-#US, #ZW, #CN, #BD, #GU, #UK, #PL, #IQ, #PK, #NZ, #CH, #IN, #IA {
+#US, #ZW, #CN, #BD, #GU, #UK, #PL, #IQ, #PK, #NZ, #CH, #IN, #IA, #AU, #AE, #LB, #MA, #TZ, #NE, #DE{
     fill: #97b1d3 !important;
     opacity: 1 !important;
 }
